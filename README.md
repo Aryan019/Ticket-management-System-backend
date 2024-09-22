@@ -25,7 +25,7 @@ Download and install Docker from [here](https://www.docker.com/).
 Run the following command to spin up PostgreSQL:
 
 ```bash
-docker run --name ticket-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=password -e POSTGRES_DB=tickets -p 5432:5432 -d postgres
+docker run --name ticket-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=password -e POSTGRES_DB=tickets -p 5432:5432 -d postgres.
 
 
 ### 3. Configure Connection Pool in Node.js
