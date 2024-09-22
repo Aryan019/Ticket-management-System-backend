@@ -16,7 +16,7 @@ Managing tickets has never been this fun… or frustrating 😅. This project he
 - **pg-pool**: For efficient database connection pooling 🌐
 - **JWT**: Secure authentication with JSON Web Tokens 🔑
 
-## 🐳 Setting Up PostgreSQL with Docker 
+## 🐳 Setting Up PostgreSQL with Docker
 
 ### 1. Install Docker
 Download and install Docker from [here](https://www.docker.com/).
@@ -25,11 +25,13 @@ Download and install Docker from [here](https://www.docker.com/).
 Run the following command to spin up PostgreSQL:
 
 ```bash
-docker run --name ticket-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=password -e POSTGRES_DB=tickets -p 5432:5432 -d postgres.
-
+docker run --name ticket-db -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=password -e POSTGRES_DB=tickets -p 5432:5432 -d postgres
+```
 
 ### 3. Configure Connection Pool in Node.js
-Here's how your Node.js app connects to PostgreSQL using the pg-pool:
+Here's how your Node.js app connects to PostgreSQL using the `pg-pool`:
+
+```javascript
 const { Pool } = require('pg');
 
 const pool = new Pool({
@@ -41,15 +43,20 @@ const pool = new Pool({
 });
 
 module.exports = pool;
+```
 
-Ensure your .env file contains the following:
+Ensure your `.env` file contains the following:
+
+```bash
 DB_USER=admin
 DB_PASSWORD=password
 DB_HOST=localhost
 DB_PORT=5432
 DB_DATABASE=tickets
+```
 
-📂 Project Structure
+## 📂 Project Structure
+```bash
 ├── config/            # Configuration files
 ├── controllers/       # Business logic controllers
 ├── db/                # PostgreSQL connection setup
@@ -57,18 +64,28 @@ DB_DATABASE=tickets
 ├── routes/            # API route handlers
 ├── models/            # DB queries and data handling
 └── utils/             # Utility functions
+```
 
-⚙️ How to Run
+## ⚙️ How to Run
 Clone the repo:
-  git clone https://github.com/Aryan019/Ticket-management-System-backend.git
-  cd Ticket-management-System-backend
+
+```bash
+git clone https://github.com/Aryan019/Ticket-management-System-backend.git
+cd Ticket-management-System-backend
+```
 
 Install dependencies:
-  npm install
+
+```bash
+npm install
+```
 
 Start the app:
-  npm start
+
+```bash
+npm start
+```
+
+Run with Docker (optional): You can use Docker to run the backend entirely inside containers if you prefer containerized environments.
 
 That’s it! 🥳 You’re all set to handle tickets like a pro. Go forth and manage tickets with ease! 😎
-
-
